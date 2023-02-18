@@ -1,0 +1,226 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Mulish&family=PT+Sans:ital,wght@1,700&display=swap');
+
+
+*{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Mulish', sans-serif;
+font-family: 'PT Sans', sans-serif;
+}
+body{
+    background-color: aquamarine;
+    padding: 0%;
+    display: flex;
+    justify-content: center;
+}
+main{
+    background-color: aliceblue;
+    height: 100%;
+    width: 90%;
+    /* border: 2px solid black; */
+    
+}
+
+.heading{
+    height: 20vh;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    height: 100%;
+    width: 20%;
+    background-image: url('/images/logo.png');
+    background-size: 100%;
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    
+}
+.name p{
+    /* border: 2px solid black; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    margin-top: 1%;
+}
+
+.add-div{
+    /* border: 2px solid black; */
+    height: 30vh;
+    display: flex;
+}
+.address{
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+}
+
+.date, .toby{
+    border-bottom: 1px solid black;
+    height: 15%;
+    padding: 0.5%;
+}
+.date{
+    padding: 0.5%;
+}
+.add{
+    /* background-color: aquamarine; */
+    padding: 0.5%;
+    height: 60%;
+}
+.add p{
+    
+    font-family: 'Courier New', Courier, monospace;
+    /* background-color: black; */
+}
+.tabel-head{
+    height: 5vh;
+    width: 100%;
+    border: 1px solid black;
+}
+.tabel-head-container{
+    height: 100%;
+    background-color: RGB(249, 101, 15);
+    display: flex;
+}
+.tabel-head-container div{
+    /* border: 1px solid black; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.d2{
+    width: 40%;
+    border: 1px solid black;
+}
+.d3{
+    width: 8%;
+    border: 1px solid black;
+}
+.d4, .d1{
+    width: 3%;
+    border: 1px solid black;
+}
+.d5, .d6{
+    width: 7%;
+    border: 1px solid black;
+}
+.d7, .d8{
+    width: 12%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(0, 0, 0);
+}
+.cat{
+    display: flex;
+    height: 100%;
+    /* border-left: 0.5px solid black; */
+}
+.cat div{
+    width: 50%;
+    height: 100%;
+}
+.d9{
+    border: 1px solid black;
+    width: 8%;
+}
+.table-data{
+    /* height: 20vh; */
+    width: 100%;
+    /* border: 2px solid black; */
+    display: flex;
+}
+
+.per{
+    border-right: 0.5px solid black;
+    border-top: 0.5px solid black;;
+}
+
+.amt{
+    border-left: 0.5px solid black;
+    border-top: 0.5px solid black;;
+}
+.ty{
+    display: flex;
+    justify-content: center;
+}
+.table-data div{
+    /* border: 1px solid black; */
+}
+
+
+.add p{
+    font-size: 1.2rem;
+}
+
+.down{
+    /* width: 30vh; */
+    height: 30vh;
+    border: 2px solid black;
+    border-top: none;
+    display: flex;
+}
+
+
+.right{
+    height: 100%;
+    width: 40%;
+    border-left: 2px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.right div{
+    height: 50%;
+    width: 100%;
+    /* border: 2px solid black; */
+    /* background-color: aqua; */
+}
+.totals-amt{
+    /* background-color: aqua; */
+    
+    border-bottom: 1px solid black;
+}
+
+.price-totalw{
+    border: none;
+    background-color: aliceblue;
+}
+.words{
+    height: 100%;
+    width: 60%;
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* background-color: aqua; */
+    height: 50%;
+    margin-top: 2%;
+    font-size: 1.2rem;
+}
+.sign{
+    display: flex;
+    justify-content: center;
+}
+.sign p{
+    /* border: 2px solid red; */
+    height: min-content;
+    margin-top: 18%;
+}
+.print{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2%;
+}
+
+.print form input{
+    padding: 1%;
+}

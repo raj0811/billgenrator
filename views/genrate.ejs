@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="ht" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <link rel="stylesheet" href="./css/genrate.css">
+    <title>Document</title>
+</head>
+
+<body class="bod">
+
+    <main class="maincc container">
+
+        <!-- jklk -->
+        <div class="heading">
+            <div class="logo">
+
+            </div>
+            <div class="name">
+                <h1>Depo Solutions Private Limited</h1>
+                <p>77/1/A, Christopher Road, Topsia,
+                    Kolkata - 700046
+                    West Bengal
+                    GSTIN: 19AAJCD1058P1Z4</p>
+            </div>
+        </div>
+
+        <div class="add-div">
+            <div class="address">
+                <div class="date">
+                    <p>Date</p>
+                    <p>
+                        <%= new Date("2015-03-25"); %>
+                    </p>
+                </div>
+                <div class="toby">
+                    <h2>Billing Address</h2>
+                </div>
+                <div class="sendhere add">
+                    <% for(let k of bill_data){ %>
+
+                        <h1>
+                            <%= k.billName %>
+                        </h1>
+                        <p>
+                            <%= k.billAddress %>
+                        </p>
+                        <p>
+                            <%= k.billAddress %>
+                                <%= k.billPhone %>
+                        </p>
+                        <p>
+                            <%= k.billCity %>
+                        </p>
+                        <p>
+                            <%= k.billGST %>
+                        </p>
+                        <% } %>
+                </div>
+            </div>
+
+            <div class="address">
+                <div class="date">
+                    <p>Date</p>
+                    <p>
+                        <%= new Date("2015-03-25"); %>
+                    </p>
+                </div>
+                <div class="toby">
+                    <h2>Shipping Address</h2>
+                </div>
+                <div class="sendhere add">
+                    <% for(let k of ship_data){ %>
+
+                        <h1>
+                            <%= k.shipName %>
+                        </h1>
+                        <p>
+                            <%= k.shipAddress %>
+                        </p>
+                        <p>
+                            <%= k.shipAddress %>
+                                <%= k.shipPhone %>
+                        </p>
+                        <p>
+                            <%= k.shipCity %>
+                        </p>
+                        <p>
+                            <%= k.shipGST %>
+                        </p>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabel-head">
+            <div class="tabel-head-container">
+                <div class="d1">#</div>
+                <div class="d2">Item & Description</div>
+                <div class="d3">HNS Code</div>
+                <div class="d4"> Qty </div>
+                <div class="d5"> Price </div>
+                <div class="d6"> Discount </div>
+                <div class="d7">
+                    <div class="ty">CGSt</div>
+                    <div class="cat">
+                        <div class="per">%</div>
+                        <div class="amt">Amount</div>
+                    </div>
+
+                </div>
+                <div class="d8">
+                    <div class="ty">SGSt</div>
+                    <div class="cat">
+                        <div class="per">%</div>
+                        <div class="amt">Amount</div>
+                    </div>
+                </div>
+                <div class="d9">Amount</div>
+            </div>
+        </div>
+
+        <% for (let i of product_data) {%>
+
+            <div class="table-data">
+                <div class="d1"></div>
+                <div class="d2">
+                    <%= i.productName%>
+                </div>
+                <div class="d3">
+                    <%= i.productHNS %>
+                </div>
+                <div class="d4">
+                    <%= i.productQty %>
+                </div>
+                <div class="d5">
+                    <%= i.productPrice %>
+                </div>
+                <div class="d6">
+                    <%= i.productDiscount %>
+                </div>
+                <div class="d7"><div class="cat">
+                    <div class="per"> <%= i.productGST/2 %> </div>
+                    <div class="amt">
+                        <% let amount= i.productPrice*i.productQty
+                        let discPrice = amount * i.productDiscount/100;
+                        let pad=amount+discPrice;
+
+                       
+
+                        gstamt=pad*i.productGST/100;
+
+                        finalAmount = pad+gstamt
+                        %>
+
+                        <%= gstamt.toFixed(2) /2 %>
+                    </div>
+                </div></div>
+                <div class="d8"><div class="cat">
+                    <div class="per"><%= i.productGST/2 %></div>
+                    <div class="amt">
+
+                        
+                        <%= gstamt.toFixed(2) /2 %>
+
+
+                    </div>
+                </div> </div>
+                <div class="d9"><%=finalAmount.toFixed(2) %></div>
+
+
+            </div>
+
+            <%}%>
+
+
+            <div class="down">
+
+
+                <div  class="words">
+                    <p id="show" >  </p>
+                    <p style="margin-top: 3%;">Thank you <br> Looking Forward For your Business </p>
+                </div>
+
+                <div class="right">
+
+                    <div class="totals-amt">
+                    <% let sum=0
+                        let cgst
+                        let total
+                        let cgstamt
+                        let sgstamt
+                        let discount
+                        let discamt
+                    %>
+                    <% for(let i of product_data) {%>
+
+                        <%
+                        sum = sum + Number(i.productPrice)
+
+                        cgst=i.productGST/2
+                        sgst=i.productGST/2
+
+                        discount=i.productDiscount
+
+                        discamt=discount*sum/100;
+                        cgstamt=cgst*sum/100
+                        sgstamt = sgst*sum/100
+
+                        total = sum+cgstamt+sgstamt-discamt
+                
+                %>
+            <%}%>
+                <div class="price-totalw">
+
+                    <table style="width: 100%;">
+                        <tr>
+                            <td>
+                                Total
+                            </td>
+                            <td>
+                                <%= sum %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                CGST(<%= cgst %>)%
+                            </td>
+                            <td>
+                                <%= cgstamt %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                SGST(<%= cgst %>)%
+                            </td>
+                            <td>
+                                <%= sgstamt %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Discount</td>
+                            <td><%= discamt %></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Total
+                            </td>
+                            <td id="word">
+                                <%= total.toFixed(2) %>
+                                
+                                
+                                
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    
+                </div>
+                    </div>
+
+                    <div  class="sign">
+                        <p>Signature</p>
+                    </div>
+
+                </div>
+
+                
+                
+                
+            </div>
+            <div class="print">
+                <form action="/pdf">
+                    <input type="submit" value="Genrate bill">
+                </form>
+                <a href="./webpage.pdf">print bill</a>
+                
+            </div>
+    </main>
+    
+
+    <!-- <% for (let i of product_data) {%>
+
+                                
+                        
+       <p><%= i.productName%></p>
+      
+        
+    <%}%> -->
+    <script src="./js/toword.js" ></script>
+    <script>
+        let div=document.querySelector(".ht");
+        let btn = document.querySelector(".download");
+
+        btn.addEventListener('click', () => {
+            html2pdf().from(div).save()
+        })
+    </script>
+</body>
+
+</html>

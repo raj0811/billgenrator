@@ -1,0 +1,208 @@
+
+*{
+    padding: 0%;
+    margin: 0%;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+nav{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: darkgray;
+    justify-content: space-between;
+    /* padding: 1%; */
+}
+.logo{
+    background-image: url('/images/logo.png');
+    height: 90%;
+    width: 15%;
+    background-color: aliceblue;
+    background-size: 100% 100%;
+    margin-left: 1%;
+}
+nav h1{
+    margin-right: 1%;
+    padding: 0%;
+}
+
+.user-data{
+    
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    /* height: 85vh; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+.data{
+    /* padding: 0.5%; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    /* height: 65vh; */
+    /* border: 2px solid blueviolet; */
+}
+
+.data form{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: aqua; */
+}
+
+.types-div{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    /* background-color: blueviolet; */
+    /* border: 2px solid black; */
+}
+.data-form{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    padding: 0.5%;
+    width: 45%;
+}
+
+.vl{
+    height: 100%;
+    border: 1px solid black;
+    
+}
+
+.data-form input,textarea{
+    width: 70%;
+    margin-top: 1%;
+    border-radius: 5px;
+    border: 0.7px solid black;
+}
+.product{
+    display: flex;
+    /* border: 2px solid black; */
+    margin-top: 2%;
+    padding: 1%;
+    justify-content: space-evenly;
+}
+
+.btn input{
+   background-color: RGB(242, 132, 63);
+   width: 20%;
+   font-size: 1.3rem;
+   height: 100%;
+}
+
+.items{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* background-color: aqua; */
+}
+.head-name, .head-item{
+    display: flex;
+    border: 1px solid red;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.products{
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    /* padding: 1%; */
+    margin: 0%;
+
+ justify-content: space-evenly;
+}
+
+.selection{
+    display: flex;
+    padding: 1%;
+    width: 100%;
+    /* background-color: blue; */
+    justify-content: space-evenly;
+}
+.product-list{
+    background-color: aquamarine;
+    margin: 0%;;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+label{
+    /* background-color: blue; */
+    margin: 0%;;
+}
+
+.other-data{
+    margin: 0%;;
+    width: 50%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+}
+.other-data input{
+
+}
+#prd{
+    width: 100%;
+    background-color: brown;
+}
+
+.select-div{
+    display: flex;
+    /* border: 2px solid black; */
+
+}
+.select-product{
+    width: 80%;
+}
+#add{
+    width: 20%;
+}
+
+.check-itemss{
+    border: 2px solid blue;
+    display: flex;
+}
+.datas{
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+    color: black;
+    color: aliceblue;
+}
+
+.datas p{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+.check-itemss ul{
+    width: 100%;
+    border: 2px solid black;
+}
+
+.del-btn{
+    height: 10px;
+    width: 10px;
+    background-color: aqua;
+}
+.bill-itemss{
+    display: flex;
+    background-color: aquamarine;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1%;
+}
+.p-name{
+    /* border: 2px solid red; */
+    width: 40%;
+}
