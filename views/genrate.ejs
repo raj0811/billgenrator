@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <link rel="stylesheet" href="./css/genrate.css">
     <title>Document</title>
 </head>
 
 <body class="bod">
 
-    <main class="maincc container">
+    <main id="mains" class="maincc container">
 
         <!-- jklk -->
         <div class="heading">
@@ -292,14 +293,27 @@
         
     <%}%> -->
     <script src="./js/toword.js" ></script>
-    <script>
-        let div=document.querySelector(".ht");
-        let btn = document.querySelector(".download");
+    <button id="btn-print">p</button>
+    
 
-        btn.addEventListener('click', () => {
-            html2pdf().from(div).save()
-        })
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+       
+
     </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.js" integrity="sha512-Fd3EQng6gZYBGzHbKd52pV76dXZZravPY7lxfg01nPx5mdekqS8kX4o1NfTtWiHqQyKhEGaReSf4BrtfKc+D5w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('#btn-print').click(function(){
+            console.log("ll");
+            $('#mains').printThis();
+        })
+    })
+</script>
 </body>
 
 </html>
