@@ -224,3 +224,7 @@ main{
 .print form input{
     padding: 1%;
 }
+.print button{
+    padding: 1%;
+    width: 10%;
+}
