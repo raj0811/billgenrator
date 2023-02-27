@@ -11,6 +11,6 @@ router.get('/genrate',homeController.genrateInvoice);
 router.post('/datainset',homeController.addData);
 router.use('/admin',require('./admin'))
 router.get('/delete-item/',homeController.deleteItem)
-router.get('/pdf',homeController.pdf)
+router.get('/print',homeController.pdf)
 
 module.exports = router; 

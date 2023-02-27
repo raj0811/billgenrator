@@ -7,7 +7,7 @@ const Invoice = require('../models/invoice');
 const puppeteer= require('puppeteer')
 
 // console.log(Invoice.count,"lll");
-var billData = [{
+var billData = [
     // billName:"",
     // billAddress:"",
     // billCity:"",
@@ -16,9 +16,9 @@ var billData = [{
     // billPhone: "",
     // billGST:""
 
-}]
+]
 
-var shipData =[{
+var shipData =[
     // shipName:"",
     // shipAddress:"",
     // shipCity:"",
@@ -26,16 +26,16 @@ var shipData =[{
     // shipMail:"",
     // shipPhone: "",
     // shipGST:""
-}]
+]
 
-var productData=[{
-    productName:"",
-    productQty:'',
-    productDiscount:'',
-    productGST:'',
-    productHNS:'',
-    productPrice:''
-}]
+var productData=[
+    // productName:"",
+    // productQty:'',
+    // productDiscount:'',
+    // productGST:'',
+    // productHNS:'',
+    // productPrice:''
+]
 
 module.exports.home=function(req,res){
 
@@ -164,31 +164,49 @@ module.exports.deleteItem=function(req,res){
 
 module.exports.pdf = async function(req,res){
 
-    const browser = await puppeteer.launch();
+    try {
+        
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto('http://localhost:8004/genrate');
+        const elementHandle = await page.$('#mains');
 
-    const webpage = await browser.newPage();
+        const css = fs.readFileSync('./assets/css/genrate.css', 'utf8');
+        const html = await page.evaluate(element => element.outerHTML, elementHandle)
 
-    await webpage.goto('https://3.86.114.75/genrate',{
-        waitUntil: "networkidle0"
-    })
+        const newPage = await browser.newPage();
+        await newPage.setContent(`<style>${css}</style>${html}`)
 
 
-    await webpage.pdf({
-        printBackground: true,
-        displayHeaderFooter: false,
-        path:"assets/webpage.pdf",
-        format: "tabloid",
-        landscape: true
-    }).then(_=>{
-        // return res.render('webpage.pdf')
-        // window.alert("downloaded")
-        console.log("Downloaded");
-    }).catch(e=>{
-        console.log(e);
-    })
+        const pdf = await newPage.pdf({
+            // format: 'A4',
+            preferCSSPageSize: true,
+            printBackground: true,
+            fullPage: true,
+            width: '470mm',
+            padding:{
+                top: '0mm',
+              bottom: '0mm',
+              left: '0mm',
+              right: '0mm'
+            },
+            margin: {
+              top: '0mm',
+              bottom: '0mm',
+              left: '0mm',
+              right: '0mm'
+            }
+        });
 
-    await browser.close();
-    return res.redirect('back')
+        await browser.close();
+        res.set('Content-Type', 'application/pdf');
+        res.send(pdf);
+    
+        
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+      }
 
 
 }
